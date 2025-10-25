@@ -27,6 +27,13 @@ repositories {
 	mavenCentral()
 }
 
+tasks.register("lint") {
+	dependsOn("checkstyleMain", "checkstyleTest")
+	group = "verification"
+	description = "Runs Checkstyle on main and test sources."
+}
+
+
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.springframework.boot:spring-boot-starter-web")
